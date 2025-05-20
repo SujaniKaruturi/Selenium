@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite parallel="tests" name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" parallel="tests" name="Test2(failed)">
+    <parameter name="Browser" value="FireFox"/>
+    <classes>
+      <class name="TestNG.MockInterview_MKT">
+        <methods>
+          <include name="quit_Facebook"/>
+          <include name="fb_Login"/>
+          <include name="initiate"/>
+        </methods>
+      </class> <!-- TestNG.MockInterview_MKT -->
+    </classes>
+  </test> <!-- Test2(failed) -->
+</suite> <!-- Failed suite [Suite] -->
