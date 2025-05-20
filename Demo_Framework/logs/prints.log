@@ -1,0 +1,16 @@
+02:29:54.160 [TestNG-tests-1] DEBUG tests.LoginTest - Browser is opened
+02:29:57.773 [TestNG-tests-1] DEBUG tests.LoginTest - URL is loaded successfully
+02:30:29.226 [TestNG-tests-1] DEBUG tests.LoginTest - Clikced on My account dropdown
+02:31:08.704 [TestNG-tests-1] DEBUG tests.LoginTest - Clicked on login option
+02:31:55.808 [TestNG-tests-1] DEBUG tests.LoginTest - email and password is entered
+02:32:02.868 [TestNG-tests-1] DEBUG tests.LoginTest - login is successfull
+02:32:03.681 [TestNG-tests-1] DEBUG tests.LoginTest - user logged in
+02:32:03.685 [TestNG-tests-1] INFO  tests.LoginTest - login is passed
+02:32:07.026 [TestNG-tests-1] DEBUG tests.LoginTest - Browser is opened
+02:32:09.410 [TestNG-tests-1] DEBUG tests.LoginTest - URL is loaded successfully
+02:32:09.525 [TestNG-tests-1] DEBUG tests.LoginTest - Clikced on My account dropdown
+02:32:10.071 [TestNG-tests-1] DEBUG tests.LoginTest - Clicked on login option
+02:32:14.172 [TestNG-tests-1] DEBUG tests.LoginTest - email and password is entered
+02:32:16.004 [TestNG-tests-1] DEBUG tests.LoginTest - login is successfull
+02:32:26.960 [TestNG-tests-1] ERROR tests.LoginTest - user didn't logged in
+02:32:26.960 [TestNG-tests-1] INFO  tests.LoginTest - login is passed
