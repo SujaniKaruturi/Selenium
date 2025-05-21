@@ -10,7 +10,7 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class LaunchAmazon
+public class RetryAnalyser_Amazon
 {
 	ChromeDriver driver;
 	@BeforeMethod    //Pre-condition activity
@@ -24,7 +24,7 @@ public class LaunchAmazon
 	}
 	@Test(retryAnalyzer = TestNG.Retry_Failed_Testcases.class) //Packagename.Classname  where retry logic is written
 	//.class need to be written explicitly indicating Retry_Failed_Testcases is a class.
-	//if its inetrface we need to mention .interface as well.
+	//if its interface we need to mention .interface as well.
 	public void action() throws InterruptedException
 	{
 		driver.findElement(By.id("twotabsearchtextbox")).sendKeys("shoe");

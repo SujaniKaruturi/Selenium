@@ -25,7 +25,15 @@ public class AutoSuggestion {
 		System.out.println("Count of autosuggestion is  " + count1);
 		as1.get(count1-4).click();
 		System.out.println("Clicked");
+		
+		for(int i=0; i<count1; i++)
+		{
+			System.out.println(i + " autosuggestion text is  " + as1.get(i).getText());
+		}
+		
+		Thread.sleep(5000);
 		driver.quit();
+		
 		
 	}
 

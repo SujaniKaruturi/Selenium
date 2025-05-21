@@ -10,7 +10,7 @@ import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-public class MockInterview_MKT {
+public class Parallel_Testing {
 	WebDriver driver;
 	@BeforeTest
 	@Parameters(value="Browser")		//Parallel Testing

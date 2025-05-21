@@ -3,8 +3,8 @@ package TestNG;
 //@Test execution based on alphabetical order,only when priority is not mentioned.
 import org.testng.annotations.Test;
 
-public class OrderOfAnn5 
-{
+public class Test_WithOut_Priority 
+{  //alphabetical order
 	@Test
 	public void subtraction()
 	{

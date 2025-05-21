@@ -1,6 +1,7 @@
 package TestNG;
 import org.testng.annotations.Test;
-public class Assignment1 
+public class Test_With_Priority 
+//-1 has highest priority then 0,1,2,3 etc
 {	@Test(priority=3)
 	public void goat()
 	{
@@ -11,10 +12,15 @@ public class Assignment1
 	{
 		System.out.println(" Womb Annotation");
 	}
-	@Test
+	@Test(priority=0)
 	public void apple()
 	{
 		System.out.println(" Apple Annotation");
+	}
+	@Test(priority=-1)
+	public void testcaseA()
+	{
+		System.out.println("testcaseA");
 	}
 	@Test(priority=2)
 	public void tip()

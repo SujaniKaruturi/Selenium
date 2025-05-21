@@ -2,7 +2,7 @@ package TestNG;
 
 import org.testng.annotations.Test;
 
-public class ParametersPractice
+public class Test_Parameters
 {
 	@Test(priority=1)
 	public void tip()
