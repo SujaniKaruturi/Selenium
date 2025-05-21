@@ -9,8 +9,6 @@ import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-
-
 public class BrowserSelection 
 {
 	WebDriver driver;

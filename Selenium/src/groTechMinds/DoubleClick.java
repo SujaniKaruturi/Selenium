@@ -7,8 +7,9 @@ import org.openqa.selenium.interactions.Actions;
 
 public class DoubleClick {
 
-	public static void main(String[] args) throws InterruptedException {
-		// TODO Auto-generated method stub
+	public static void doubleClick() throws InterruptedException
+	{
+		/code is not working
 		ChromeDriver driver = new ChromeDriver();
 		driver.get("https://grotechminds.com/left-double-click/");
 		driver.manage().window().maximize();
@@ -17,9 +18,16 @@ public class DoubleClick {
 		Actions a=new Actions(driver);
 		a.doubleClick(dc);
 		
-		driver.findElement(By.linkText("Link2"));
+		Thread.sleep(5000);
+		driver.findElement(By.id("mypopup2"));
 		Thread.sleep(5000);
 		driver.quit();
+	}
+	
+	public static void main(String[] args) throws InterruptedException {
+		// TODO Auto-generated method stub
+		doubleClick();
+		
 	}
 
 }
