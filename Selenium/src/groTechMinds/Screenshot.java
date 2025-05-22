@@ -2,9 +2,12 @@ package groTechMinds;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.Date;
 
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
@@ -13,7 +16,7 @@ import org.openqa.selenium.io.FileHandler;
 
 public class Screenshot {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		// TODO Auto-generated method stub
 		ChromeDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
@@ -40,7 +43,7 @@ public class Screenshot {
         System.out.println("Current date and time: "+ currentDateTime); 
 		
         //Screenshot with time is failed need to check again
-		File dest4 = new File("D:\\S_Selenium\\Projects\\Screenshot_Practice\\Scrennshot_"+ currentTim +".png");
+		File dest4 = new File("D:\\S_Selenium\\Projects\\Screenshot_Practice\\Screenshot_"+new SimpleDateFormat("dd-MM-yy ss:mm:HH").format(new Date())+".png");
 		FileHandler.copy(source, dest4);
 		
 		try

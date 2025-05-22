@@ -9,17 +9,18 @@ public class DoubleClick {
 
 	public static void doubleClick() throws InterruptedException
 	{
-		/code is not working
+		
 		ChromeDriver driver = new ChromeDriver();
 		driver.get("https://grotechminds.com/left-double-click/");
 		driver.manage().window().maximize();
 		Thread.sleep(5000);
 		WebElement dc=driver.findElement(By.xpath("//div[@class='popup2']"));
 		Actions a=new Actions(driver);
-		a.doubleClick(dc);
+		Thread.sleep(5000);
+		a.doubleClick(dc).perform();
 		
 		Thread.sleep(5000);
-		driver.findElement(By.id("mypopup2"));
+		driver.findElement(By.id("mypopup2")).click();
 		Thread.sleep(5000);
 		driver.quit();
 	}

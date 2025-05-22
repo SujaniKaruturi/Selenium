@@ -19,9 +19,9 @@ public class DropDown {
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20)); //wait till page is loaded completely
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		Thread.sleep(6000);
-		//WebElement dp = driver.findElement(By.xpath("//select[@class='form-select Choice1 select2-hidden-accessible']"));
-		WebElement dp = driver.findElement(By.id("Choice1"));
-		dp.click();
+		WebElement dp = driver.findElement(By.xpath("//select[@class='form-select Choice1 select2-hidden-accessible']"));
+		//WebElement dp = driver.findElement(By.id("Choice1"));
+		//dp.click();   //not required to click on select element.
 		Select s=new Select(dp);
 		s.selectByVisibleText("Demo2");
 		Thread.sleep(3000);
