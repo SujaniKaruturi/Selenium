@@ -30,11 +30,11 @@ public class KeysFunctionality {
 		dd.sendKeys(Keys.ARROW_DOWN);
 		//dd.sendKeys(Keys.ENTER+ "+" +Keys.ARROW_DOWN+ "+" +Keys.ARROW_DOWN); another way of selecting drop down in one line code
 		//using for loop also ,this can be done.
-		String[] options = ["Technical Skills", "Non-Technical Skills"]
-		for option in options:
-		{
+		//String[] options = ["Technical Skills", "Non-Technical Skills"]
+		//for option in options:
+		//{
 			
-		}
+		//}
 		
 		dd.click();
 		

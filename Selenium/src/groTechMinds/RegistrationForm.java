@@ -1,7 +1,5 @@
 package groTechMinds;
 
-import java.time.Duration;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -30,8 +28,7 @@ public class RegistrationForm {
 		s2.selectByIndex(4);
 		state.sendKeys(Keys.ENTER);
 		
-		checkbox not getting clicked
-		driver.findElement(By.xpath("(//input[@type='checkbox'])[1]")).click();
+		//driver.findElement(By.xpath("(//input[@type='checkbox'])[1]")).click();  //checkbox have issue in application
 		
 		Thread.sleep(5000);
 		driver.findElement(By.name("Submit"));
