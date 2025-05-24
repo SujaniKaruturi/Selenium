@@ -23,7 +23,7 @@ public class Registration {
 		driver.findElement(By.id("password")).sendKeys("1234dfgh" + Keys.ENTER);
 		//Thread.sleep(5000);
 		
-		//driver.findElement(By.id("male")).click();
+		//driver.findElement(By.id("male")).click();  //issue with application 
 		
 		WebElement skill = driver.findElement(By.id("Skills"));
 		Select s= new Select(skill);
@@ -32,10 +32,10 @@ public class Registration {
 		driver.findElement(By.id("Present-Address")).sendKeys("Hyderabad");
 		driver.findElement(By.id("Permanent-Address")).sendKeys("Hyderabad");
 		driver.findElement(By.id("Pincode")).sendKeys("534678");
-		//driver.findElement(By.id("relocate")).click();
+		//driver.findElement(By.id("relocate")).click();  //issue with application 
 		driver.findElement(By.id("file")).sendKeys("D:\\PF MONEY WITHDRALL.pdf");
 		Thread.sleep(5000);
-		driver.findElement(By.xpath("//button[@name='Submit']")).click();
+		//driver.findElement(By.xpath("//button[@name='Submit']")).click();  //issue with application 
 		
 		
 	}
