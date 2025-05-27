@@ -23,6 +23,8 @@ public class DropDown {
 		//WebElement dp = driver.findElement(By.id("Choice1"));
 		//dp.click();   //not required to click on select element.
 		Select s=new Select(dp);
+		System.out.println("No of options in dropdown" + s.getOptions().size());
+		String selectedValue = s.options[s.selectedIndex].value;
 		s.selectByVisibleText("Demo2");
 		Thread.sleep(3000);
 		s.selectByValue("Demo5");
