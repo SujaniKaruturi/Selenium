@@ -14,6 +14,10 @@ public class iframe {
 		Thread.sleep(5000);
 		WebElement iframe=driver.findElement(By.id("frame"));
 		driver.switchTo().frame(iframe);
+		driver.switchTo().defaultContent(); //leave frame
+		
+        driver.switchTo().frame(0); //switch To IFrame using index
+
 		Thread.sleep(3000);
 		driver.findElement(By.id("firstName")).sendKeys("Sujani");
 		driver.findElement(By.id("lastName")).sendKeys("Karuturi");

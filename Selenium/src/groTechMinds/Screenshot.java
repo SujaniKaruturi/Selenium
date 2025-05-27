@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Date;
 
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -24,11 +25,14 @@ public class Screenshot {
 		
 		TakesScreenshot ts=driver;
 		File source=ts.getScreenshotAs(OutputType.FILE);
-		File dest =new File("D:\\S_Selenium\\Projects\\Screenshot_Practice\\Scrennshot_" + Math.random() + ".png" );
+		File dest =new File("D:\\Sujani\\Screenshots practice\\Screenshot_" + Math.random() + ".png" );
 		FileHandler.copy(source, dest);
+		// FileUtils.copyFile(source, dest); //this method also works 
+
+		 
 		
 		// image name - using className. i.e. method - "new ClassName().getClass()"
-		File dest2 = new File("D:\\S_Selenium\\Projects\\Screenshot_Practice\\Scrennshot_"+new Screenshot().getClass() +".png");
+		File dest2 = new File("D:\\Sujani\\Screenshots practice\\Screenshot_"+new Screenshot().getClass() +".png");
 		FileHandler.copy(source, dest2);
 	
 		LocalDate currentDate = LocalDate.now(); 
@@ -42,13 +46,14 @@ public class Screenshot {
         LocalDateTime currentDateTime = LocalDateTime.now(); 
         System.out.println("Current date and time: "+ currentDateTime); 
 		
+        System.out.println("time is "+ new SimpleDateFormat("dd-MM-yy ss:mm:HH").format(new Date()));
         //Screenshot with time is failed need to check again
-		File dest4 = new File("D:\\S_Selenium\\Projects\\Screenshot_Practice\\Screenshot_"+new SimpleDateFormat("dd-MM-yy ss:mm:HH").format(new Date())+".png");
+		File dest4 = new File("D:\\Sujani\\Screenshots practice\\Screenshot_"+new SimpleDateFormat("dd-MM-yy ss:mm:HH").format(new Date())+".png");
 		FileHandler.copy(source, dest4);
 		
 		try
 		{
-			File dest3 =new File("D:\\S_Selenium\\Projects\\Screenshot_Practice\\img\\Scrennshot_" + Math.random() + ".png" );
+			File dest3 =new File("D:\\Sujani\\Screenshots practice\\Screenshot_" + Math.random() + ".png" );
 			FileHandler.copy(source, dest3);
 		}
 		catch(FileNotFoundException ex)

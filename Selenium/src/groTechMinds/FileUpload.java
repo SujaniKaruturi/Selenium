@@ -37,7 +37,8 @@ public class FileUpload {
      rb.delay(2000);  // Wait for 2 seconds to ensure the file dialog is open
 
      // Copy the file path to the clipboard
-     StringSelection ss = new StringSelection("Downloads\\TestData_ORiginal.xlsx");//path which you want to upload the file 
+     StringSelection ss = new StringSelection("Downloads\\TestData_ORiginal.xlsx");
+     //path which you want to upload the file 
      Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
 
      // Simulate pressing CTRL + V to paste the copied file path

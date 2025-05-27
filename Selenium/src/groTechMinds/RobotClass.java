@@ -31,10 +31,13 @@ public class RobotClass {
 		a1.contextClick(electronics).perform();
 		Robot r = new Robot();
 		r.keyPress(KeyEvent.VK_DOWN);
+		r.keyRelease(KeyEvent.VK_DOWN);
 		Thread.sleep(2000);
 		r.keyPress(KeyEvent.VK_DOWN);
+		r.keyRelease(KeyEvent.VK_DOWN);
 		Thread.sleep(2000);
 		r.keyPress(KeyEvent.VK_ENTER);
+		r.keyRelease(KeyEvent.VK_ENTER);
 	}
 
 }
