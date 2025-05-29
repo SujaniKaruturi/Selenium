@@ -16,13 +16,13 @@ public class RetryAnalyser_Amazon
 	@BeforeMethod    //Pre-condition activity
 	public void Lauch()
 	{
-		ChromeDriver driver =new ChromeDriver();   
+		driver =new ChromeDriver();   
 		//driver is local variable ,where driver from action method gives error.
 		//so declared driver as global variable.
 		driver.get("https://www.amazon.in/");
 		driver.manage().window().maximize(); 
 	}
-	@Test(retryAnalyzer = TestNG.Retry_Failed_Testcases.class) //Packagename.Classname  where retry logic is written
+	@Test(retryAnalyzer = Retry_Failed_Testcases.class) //Classname.class  where retry logic is written
 	//.class need to be written explicitly indicating Retry_Failed_Testcases is a class.
 	//if its interface we need to mention .interface as well.
 	public void action() throws InterruptedException

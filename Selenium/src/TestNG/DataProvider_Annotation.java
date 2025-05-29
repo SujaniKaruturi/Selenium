@@ -3,8 +3,6 @@ package TestNG;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Reporter;
 import org.testng.annotations.DataProvider;
@@ -26,7 +24,7 @@ public class DataProvider_Annotation {
 		d[7][0]="frock";
 		return d;
 		*/
-		return new Object[][] {{"Ram"}, {"Sujani"}};
+		return new Object[][] {{"Ram"}, {"Sujani"}, {"Krishna"}};
 	}
 	@DataProvider(name="data2")
 	public Object  testData2()
@@ -44,7 +42,9 @@ public class DataProvider_Annotation {
 		d[1][1]="glass";
 		d[2][0]="sujani12@gmail.com";
 		d[2][1]="keys";
-		return d;
+		
+		return new Object[][] { {"sujani@gmail.com","tshirt"}, {"sujani11@gmail.com","glass"}};
+		//return d;
 	}
 	@Test(dataProvider = "data1")
 	public void multipleInputsToSearch(String data)
@@ -76,6 +76,6 @@ public class DataProvider_Annotation {
 	{
 		int sum =a+100;
 		Reporter.log("Sum value " + sum);
-		System.out.println(sum);
+		System.out.println("Suma value is " + sum);
 	}
 }

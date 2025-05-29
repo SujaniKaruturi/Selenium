@@ -15,14 +15,7 @@ import org.testng.Reporter;
 public class ListenersLogic  implements ITestListener{
 
 	 static ChromeDriver driver;
-	 //Why it is important for every global variable to be static
-	 //
-	@Override
-	public void onTestStart(ITestResult result) {
-		// TODO Auto-generated method stub
-		ITestListener.super.onTestStart(result);
-	}
-
+	 
 	@Override
 	public void onTestSuccess(ITestResult result) {
 		// TODO Auto-generated method stub
@@ -44,7 +37,7 @@ public class ListenersLogic  implements ITestListener{
 	public void onTestFailure(ITestResult result) {
 		// TODO Auto-generated method stub
 		ITestListener.super.onTestFailure(result);
-		Reporter.log("Testcase is passed");
+		Reporter.log("Testcase is failed");
 		TakesScreenshot tks =driver;
 		File source = tks.getScreenshotAs(OutputType.FILE);
 		File dest = new File("D:\\S_Selenium\\Java\\Selenium\\src\\TestNG\\Screenshot\\Fail_SC_" + Math.random() + ".png");
