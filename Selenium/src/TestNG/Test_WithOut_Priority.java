@@ -4,11 +4,11 @@ package TestNG;
 import org.testng.annotations.Test;
 
 public class Test_WithOut_Priority 
-{  //alphabetical order
+{  //alphabetical order with Capital and small letter - it will run Capital letter first
 	@Test
-	public void subtraction()
+	public void Subtraction()
 	{
-		System.out.println(" subtraction Annotation");
+		System.out.println(" Subtraction Annotation");
 	}
 	@Test
 	public void addition()
@@ -21,8 +21,19 @@ public class Test_WithOut_Priority
 		System.out.println(" act Annotation");
 	}
 	@Test
-	public void home()
+	public void Home()
 	{
-		System.out.println(" home Annotation");
+		System.out.println(" Home Annotation");
 	}
+	@Test
+	public void Rome()
+	{
+		System.out.println(" Rome Annotation");
+	}
+	@Test
+	public void gome()
+	{
+		System.out.println(" Gome Annotation");
+	}
+	
 }

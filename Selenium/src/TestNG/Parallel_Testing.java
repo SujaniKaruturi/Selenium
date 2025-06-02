@@ -13,18 +13,20 @@ import org.testng.annotations.Test;
 public class Parallel_Testing {
 	WebDriver driver;
 	@BeforeTest
-	@Parameters(value="Browser")		//Parallel Testing
-	public void initiate(String browser)
+	@Parameters(value= "Browser")		//Parallel Testing
+	//or
+	//@Parameters("Browser")	
+	public void initiate(String NameOfBrowser)
 	{
-		if(browser.equals("Chrome"))
+		if(NameOfBrowser.equals("Chrome"))
 		{
 		driver=new ChromeDriver();
 		}
-		if(browser.equals("Firefox"))
+		if(NameOfBrowser.equals("Firefox"))
 		{
 		driver=new FirefoxDriver();
 		}
-		if(browser.equals("Edge"))
+		if(NameOfBrowser.equals("Edge"))
 		{
 		driver=new EdgeDriver();
 		}

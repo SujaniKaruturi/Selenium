@@ -8,12 +8,12 @@ public class Test_With_Priority
 		System.out.println(" Goat Annotation");
 	}
 	@Test
-	public void womb()
+	public void act()
 	{
 		System.out.println(" Womb Annotation");
 	}
 	@Test(priority=0)
-	public void apple()
+	public void women()
 	{
 		System.out.println(" Apple Annotation");
 	}

@@ -3,13 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="TestNG.RetryAnalyser_Amazon">
+      <class name="TestNG.DataProviderValues_From_Excel">
         <methods>
-          <include name="Lauch"/>
-          <include name="action"/>
-          <include name="quit1"/>
+          <include name="login_in_amazon" invocation-numbers="0"/>
         </methods>
-      </class> <!-- TestNG.RetryAnalyser_Amazon -->
+      </class> <!-- TestNG.DataProviderValues_From_Excel -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -24,13 +24,15 @@ public class ExplicitWait {
 		wait.until(ExpectedConditions.elementToBeClickable(search1)); 
 		wait.until(ExpectedConditions.titleContains("Goog")); 
 		wait.until(ExpectedConditions.visibilityOf(search1));
-		wait.until(ExpectedConditions.attributeContains(search1,name ,'q'));
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("q")).click()); 	//wait till element is visible.
+		wait.until(ExpectedConditions.attributeContains(search1,"name" ,"q"));
+		WebElement loginButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("q"))); 	
+		loginButton.click();
+		//wait till element is visible.
 		wait.until(ExpectedConditions.alertIsPresent()); //Check any alert(javascript pop up) is present
 		WebElement search = driver.findElement(By.name("q"));
 		search.sendKeys("India" + Keys.ENTER);
-		
-		
+		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(search));
+	
 		
 	}
 
