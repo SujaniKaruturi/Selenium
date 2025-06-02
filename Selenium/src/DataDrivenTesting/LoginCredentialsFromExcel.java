@@ -10,6 +10,7 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.ss.util.NumberToTextConverter;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class LoginCredentialsFromExcel 
@@ -29,8 +30,11 @@ public class LoginCredentialsFromExcel
 		System.out.println("username is " + username);
 		System.out.println("password is " + password);
 		System.out.println("MobNumber is " + mobnum);;
-		
-		
+	}
+	
+	@DataProvider(name = "data1")
+	public void InputValues()
+	{
 		
 	}
 }

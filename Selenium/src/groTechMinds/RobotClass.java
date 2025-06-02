@@ -2,6 +2,7 @@ package groTechMinds;
 
 import java.awt.AWTException;
 import java.awt.Robot;
+import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 
 import org.openqa.selenium.By;
@@ -16,6 +17,24 @@ public class RobotClass {
 	public static void main(String[] args) throws InterruptedException, AWTException {
 		ChromeDriver driver = new ChromeDriver();
 
+		
+		driver.get("https://www.flipkart.com/");
+		driver.manage().window().maximize();
+		
+		//mouse actions using robot class
+		Robot robot = new Robot();
+
+        // Delay for visibility (wait 2 seconds before starting)
+        robot.delay(2000);
+
+        // Move mouse to a specific screen location (e.g., x=500, y=300)
+        robot.mouseMove(500, 300);
+
+        // Simulate mouse left button click
+        robot.mousePress(InputEvent.BUTTON1_DOWN_MASK); // Press left button
+        robot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK); // Release left button
+        
+        
 		 driver.navigate().to("https://grotechminds.com/registration/");
 		 driver.manage().window().maximize(); WebElement dd=
 		 driver.findElement(By.id("Skills")); //drop down locator
@@ -38,6 +57,9 @@ public class RobotClass {
 		Thread.sleep(2000);
 		r.keyPress(KeyEvent.VK_ENTER);
 		r.keyRelease(KeyEvent.VK_ENTER);
+		
+		
+		
 	}
 
 }
