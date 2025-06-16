@@ -28,8 +28,12 @@ public class DropDown {
 		for(int i=0;i<options.size();i++)
 		{
 			System.out.println("No of options in dropdown" + dp.getText());
-			
+			if (dp.getText().equalsIgnoreCase("selenium webdriver")) {
+                dp.click();
+                break;
 		}
+		}
+		
 		//By using auto suggestion of options list
 		List<WebElement> ddoptions = driver.findElements(By.xpath("//select[@class='form-select Choice1 select2-hidden-accessible']//option"));
 		for(int i=0;i<ddoptions.size();i++)
