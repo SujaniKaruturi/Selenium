@@ -38,6 +38,11 @@ public class OrderOfAnnotation
 	{
 		System.out.println(" Test2 Annotation");
 	}
+	@Test
+	public void test6()
+	{
+		System.out.println(" Test2 Annotation");
+	}
 
 	@AfterMethod
 	public void method2()
