@@ -13,10 +13,20 @@ public class DragAndDrop {
 		driver.get("https://grotechminds.com/drag-and-drop/");
 		driver.manage().window().maximize();
 		Thread.sleep(5000);
-		WebElement sorce=driver.findElement(By.xpath("//div[@id='container-3']//img"));
+		WebElement source=driver.findElement(By.xpath("//div[@id='container-3']//img"));
 		WebElement dest=driver.findElement(By.id("div2"));
+		
 		Actions a=new Actions(driver);
-		a.dragAndDrop(sorce, dest).perform();
+		a.dragAndDrop(source, dest).perform();
+		
+		// Step 5: Create Actions class object and perform drag-and-drop using clickAndHold
+        Actions action = new Actions(driver);
+        action
+            .clickAndHold(source) // Step 1: Hold the source
+            .moveToElement(dest) // Step 2: Move to the target
+            .release()             // Step 3: Release the mouse
+            .build()               // Combine all actions
+            .perform();            // Execute the action
 	}
 
 }

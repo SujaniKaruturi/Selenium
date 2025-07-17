@@ -32,7 +32,7 @@ public class ExplicitWait {
 		WebElement search = driver.findElement(By.name("q"));
 		search.sendKeys("India" + Keys.ENTER);
 		wait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(search));
-	
+		wait.until(ExpectedConditions.invisibilityOfElementLocated(By.name("q")));
 		
 	}
 

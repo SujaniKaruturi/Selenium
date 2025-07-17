@@ -19,7 +19,22 @@ public class ExcelSheetClass {
 	{
 
 		
-		
+		 	FileInputStream fis = new FileInputStream("TestData.xlsx");
+		    Workbook workbook =WorkbookFactory.create(fis);
+		    Sheet sheet = workbook.getSheet("LoginData");
+
+		    int rowCount = sheet.getPhysicalNumberOfRows();
+		    int colCount = sheet.getRow(0).getLastCellNum();
+		    Object[][] data = new Object[rowCount - 1][colCount];
+
+		    for (int i = 1; i < rowCount; i++) {
+		        Row row = sheet.getRow(i);
+		        for (int j = 0; j < colCount; j++) {
+		            data[i - 1][j] = row.getCell(j).toString();
+		        }
+		    }
+		    workbook.close();
+
 		
 		FileInputStream file= new FileInputStream("C:\\Users\\DELL\\eclipse-workspace\\Selenium\\Excelsheet\\TestDataInput.xlsx"); //Location of excelsheet
 		Workbook wb= WorkbookFactory.create(file);		//open excelsheet

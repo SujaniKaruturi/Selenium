@@ -8,6 +8,32 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Shadow_DOM_Elements {
 
+	public static void books_appspot() throws InterruptedException
+	{
+		ChromeDriver driver=new ChromeDriver();
+		driver.get("https://books-pwakit.appspot.com/");
+		driver.manage().window().maximize();
+		Thread.sleep(3000);
+		
+		//driver.findElement(By.linkText("Learning Hub")).click(); 
+		// Locate the actual shadow host element
+        WebElement shadowHost = driver.findElement(By.cssSelector("[apptitle='BOOKS']"));
+
+        // Get the shadow root from the correct element
+        SearchContext shadowRoot = shadowHost.getShadowRoot();
+
+        // Locate the link inside the shadow root
+        WebElement learningHubLink = shadowRoot.findElement(By.cssSelector("#input"));
+        //learningHubLink.click();
+
+        // Use JavaScriptExecutor to click on it
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", learningHubLink);
+        learningHubLink.sendKeys("india");
+        // Wait to observe the result
+        Thread.sleep(3000);
+       // driver.quit();
+	}
 	public static void SelectorsHub() throws InterruptedException
 	{
 		ChromeDriver driver=new ChromeDriver();
@@ -50,9 +76,9 @@ public class Shadow_DOM_Elements {
 		e2.click();
 	}
 	public static void main(String[] args) throws InterruptedException {
-		
+		books_appspot();
 		//AirIndia();
-		SelectorsHub();
+		//SelectorsHub();
 	}
 
 }
