@@ -31,7 +31,7 @@ public class MKT_Example {
 	}
 
 	@DataProvider(name="data1")
-	public Object[][] testdata1() throws IOException
+	public Object testdata1() throws IOException
 	{
 		FileInputStream f1 = new FileInputStream("C:\\Users\\malag\\eclipse-workspace\\Reports\\Excel Files\\TestData.xlsx");
 		Workbook w1 = WorkbookFactory.create(f1);

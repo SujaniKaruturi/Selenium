@@ -4,59 +4,91 @@ import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Duration;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 //29. Print all the links present in google home page.
 //30. Print attribute value for particular name
 public class Broken_Links {
-	static void all_Links() throws InterruptedException, IOException
+	public static void main(String[] args) throws InterruptedException, IOException
 	{
-	ChromeDriver driver = new ChromeDriver();
-	//driver.get("https://www.google.com/");
-	driver.get("https://www.amazon.in");
+	ChromeDriver driver=new ChromeDriver();
+	driver.get("https://www.google.com");
 	driver.manage().window().maximize();
-	List<WebElement> allLinks= driver.findElements(By.tagName("a"));
-	int count =allLinks.size();
-	System.out.println( "Count of all links is " + count);
-	for(int i=0; i<count; i++)
-	  { 
-		  System.out.println(i + " Link with attribute value is  " + allLinks.get(i).getAttribute("href")); 
-	  }
-	for(int j=0;j<count;j++) 
+	Thread.sleep(2000);
+	
+	driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+	WebDriverWait wait=new WebDriverWait(driver, Duration.ofSeconds(10));
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.name("q")));
+	
+	driver.navigate().refresh();
+	
+	List<WebElement> links=driver.findElements(By.tagName("a"));
+	int size=links.size();
+	
+	int noofvalidlinks=0;
+	int noofinvalidlinks=0;
+	int noofnulloremptylinks=0;
+	
+	for(int i=0; i<size; i++)
 	{
-		WebElement a=  allLinks.get(j);
-		String url=a.getAttribute("href");
-		String attributevalue =a.getText();   //text of html page at particular index 
-		System.out.println( "Attribute value " + attributevalue +" Attribute Name(URL) " + url );
-		verifyBrokenLinks(url);
-	}
-	}
-	static void verifyBrokenLinks(String url) throws IOException
+		try 
 	{
-		try
+		
+			
+		String urls=links.get(i).getDomAttribute("href");
+		System.out.println("Link Value " + i+ " with url is " + urls);	
+			
+		if (urls==null||urls.isEmpty())
 		{
-		URL u1=new URL(url);	//built in class
-		HttpURLConnection u2= (HttpURLConnection) u1.openConnection();  
-		//upcast openConnection method with interface
-		if(u2.getResponseCode()==200)
+			
+			System.out.println(urls+"the url is empty or null");
+			noofnulloremptylinks++;
+			continue;
+		}
+		
+		URL u1=new URL(urls);
+		HttpURLConnection h1= (HttpURLConnection) u1.openConnection();
+		//h1.setRequestMethod("HEAD"); 
+		h1.setConnectTimeout(5000);
+		h1.connect();
+	
+		if(h1.getResponseCode()>=400)
 		{
-			System.out.println("Link is valid " + url + " "+  u2.getResponseMessage());
+			System.out.println(urls+" : "+h1.getResponseCode()+" :the link is not valid or broken");
+			noofinvalidlinks++;
 		}
 		else
 		{
-			System.out.println("Link is not valid " + url +" "+  u2.getResponseMessage());
+			System.out.println(urls+" : "+h1.getResponseCode()+" :The Link is Valid");
+			noofvalidlinks++;
 		}
-		}
-		catch(MalformedURLException e)
-		{
-			System.out.println("Handled URL null value Exception ");
-		}
-		
+		h1.disconnect();
+   
+}
+
+	
+	catch(MalformedURLException e)
+	{
+		System.out.println("Handled URL null value Exception ");
 	}
+	
+}	
+	System.out.println("Total links present: "+size);
+	System.out.println("Total invalid links: "+noofinvalidlinks);
+	System.out.println("Total valid links: "+noofvalidlinks);
+	System.out.println("Total null or empty links: "+noofnulloremptylinks);
+
+	
+	
+		
+	
 	/*
 	Attribute value Try different image Attribute Name(URL) null
 	Exception in thread "main" java.net.MalformedURLException: Cannot invoke "String.length()" because "spec" is null
@@ -64,24 +96,9 @@ public class Broken_Links {
 	MalformedURLException, NullPointerException occured as 'URL' class not able to handle URL which is null.
 	so we need to resolve it using exception handling
 	*/
-	static void attribute_Value() throws InterruptedException
-	{
-	ChromeDriver driver = new ChromeDriver();
-	driver.get("https://www.google.com/");
-	driver.manage().window().maximize();
-	List<WebElement> allLinks= driver.findElements(By.tagName("a"));
-	int count =allLinks.size();
-	System.out.println( "Count of all links is " + count);
-	for(int i=0; i<count; i++)
-	  { 
-		  System.out.println(i + " Class with attribute value is  " + allLinks.get(i).getAttribute("class")); 
-	  }
-	}
-	
-	public static void main(String[] args) throws InterruptedException, IOException {
-		// TODO Auto-generated method stub
-		all_Links();
-		attribute_Value();
-	}
-
 }
+}
+	
+	 
+
+

@@ -35,10 +35,12 @@ public class Scroll {
 		
 		WebElement hor= driver.findElement(By.linkText("Age"));
 		//Actions h=new Actions(driver);
-		//h.moveToElement(hor).perform();
+		//h.moveToElement(hor).click().perform();
 		//second way
 		JavascriptExecutor j=driver;
 		j.executeScript("arguments[0].scrollIntoView();", hor);  //horizontal scroll
+		j.executeScript("arguments[0].click();" , hor);
+		//hor.click(); //org.openqa.selenium.ElementClickInterceptedException: element click intercepted
 		
 	}
 	public static void ScrollwithCoOrdinates() throws InterruptedException
@@ -56,17 +58,21 @@ public class Scroll {
 		
 		Actions a=new Actions(driver);
 		//first way
-		a.moveToElement(amazon).perform();
+		not clicking on about amazon option
+		a.moveToElement(amazon).click().build().perform();
 		//second way
-		a.moveByOffset(x,y).click().perform();
+		//a.moveByOffset(x,y).click().perform();  
+		//org.openqa.selenium.interactions.MoveTargetOutOfBoundsException: move target out of bounds
 		//third way
 		JavascriptExecutor var1 = driver;
 		var1.executeScript("arguments[0].scrollIntoView();", amazon);
+		var1.executeScript("arguments[0].click();" , amazon);
+		//amazon.click();  //org.openqa.selenium.ElementClickInterceptedException: element click intercepted
 		//fourth way
-		JavascriptExecutor var2 = driver;
-		var1.executeScript("window.scrollBy(0,"+y+")");	//Scroll Down - x-axis is always 0 as we are scrolling down.
+		//JavascriptExecutor var2 = driver;
+		//var1.executeScript("window.scrollBy(0,"+y+")");	//Scroll Down - x-axis is always 0 as we are scrolling down.
 		Thread.sleep(1000);
-		var1.executeScript("window.scrollBy(0,-"+y+")"); //Scroll Up
+		//var1.executeScript("window.scrollBy(0,-"+y+")"); //Scroll Up
 		
 	}
 	
@@ -103,10 +109,10 @@ public class Scroll {
 	
 	public static void main(String[] args) throws InterruptedException, AWTException {
 		// TODO Auto-generated method stub
-		vertical();
+		//vertical();
 		horizontal();
-		ScrollwithCoOrdinates();
-		Scroll_Up_down();
+		//ScrollwithCoOrdinates();
+		//Scroll_Up_down();
 	}
 
 }
