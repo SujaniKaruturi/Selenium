@@ -38,7 +38,7 @@ public class ExcelSheetClass {
 		
 		FileInputStream file= new FileInputStream("C:\\Users\\DELL\\eclipse-workspace\\Selenium\\Excelsheet\\TestDataInput.xlsx"); //Location of excelsheet
 		Workbook wb= WorkbookFactory.create(file);		//open excelsheet
-		Sheet sheet= wb.getSheet("Login");		//moving to required Sheet in the excel
+		Sheet sheet1= wb.getSheet("Login");		//moving to required Sheet in the excel
 		/*
 		Row row= sheet.getRow(0);				//Which Row
 		Cell cell= row.getCell(0);				//Which Column
@@ -47,14 +47,14 @@ public class ExcelSheetClass {
 		*/
 		
 		//writing 3 lines of code in 1 line
-		String username = sheet.getRow(2).getCell(2).getStringCellValue();    //Return type should be last method(getStringCellValue) only.whihc ever method it is also.
-		String password = sheet.getRow(3).getCell(2).getStringCellValue();
+		String username = sheet1.getRow(2).getCell(2).getStringCellValue();    //Return type should be last method(getStringCellValue) only.whihc ever method it is also.
+		String password = sheet1.getRow(3).getCell(2).getStringCellValue();
 		//System.out.println("username is " + username);
 		//System.out.println("password is " + password);
 		
 		//If username of amazon is mobile number then it gives exception as of now.Handled by NumberToTextConverter class.
 		//String mobnum = sheet.getRow(2).getCell(4).getStringCellValue();
-		String mobnum= NumberToTextConverter.toText(sheet.getRow(2).getCell(4).getNumericCellValue());
+		String mobnum= NumberToTextConverter.toText(sheet1.getRow(2).getCell(4).getNumericCellValue());
 		//System.out.println("MobNumber is " + mobnum);
 		 
 		ChromeDriver driver =new ChromeDriver();

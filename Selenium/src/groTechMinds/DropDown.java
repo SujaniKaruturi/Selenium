@@ -9,9 +9,12 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
-
+		//Interview question :
+		// How do you manage AutoFill Fields and validate the options listed?
+		//How do you handle dynamic dropdowns and select options using Selenium WebDriver? 
 public class DropDown {
 
 	public static void main(String[] args) throws InterruptedException {
@@ -32,16 +35,26 @@ public class DropDown {
 		int count= options.size();
 		s.selectByIndex(count-1);
 		
-		for(WebElement k:options)
+		for(WebElement eachoption:options)
 		{
-			String text = k.getText();
+			String text = eachoption.getText();
 			System.out.println("All options are " + text);
 			if(text.equalsIgnoreCase("Gift Cards"))
 			{
-				k.click();
+				eachoption.click();
 				break;
 			}
 		}
+		
+		//dynamic dropdowns respond to keyboard arrows instead of clicks
+		//Good for autocomplete suggestions or AJAX-based dropdowns
+		//Avoids looping through all options
+		Actions act = new Actions(driver);
+		WebElement inputBox = driver.findElement(By.id("country"));
+		inputBox.sendKeys("Ind");
+		Thread.sleep(2000);  // Wait for suggestions to appear
+		act.sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
+
 		
 		//Selecting dynamic Dropdown value using Auto-suggestion xpath
 		List<WebElement> autosuggestion= driver.findElements(By.xpath("//select[@aria-describedby='searchDropdownDescription']//option"));

@@ -38,6 +38,7 @@ public class getWindownHandles {
 		        System.out.println("Switched to child window: " + driver.getTitle());
 		        if(driver.getTitle().contains("Google") || driver.getCurrentUrl().contains("google.com"))
 		        {
+		        	  System.out.println("Switched to window:  Google");
 		        //do any action u want to perform
 		        	driver.close();
 		        	break;
@@ -49,7 +50,7 @@ public class getWindownHandles {
 		    
 		    
 		    //another way of switching to particular window by converting set into arraylist
-	        // Convert to List to access by index
+	        // Convert Set to List to access by index
 	        ArrayList<String> windowList = new ArrayList<>(allWindows);
 
 	        // Switch to the 4th window (index 3)

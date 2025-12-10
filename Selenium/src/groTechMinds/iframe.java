@@ -14,7 +14,8 @@ public class iframe {
 		Thread.sleep(5000);
 		WebElement iframe=driver.findElement(By.id("frame"));
 		driver.switchTo().frame(iframe);
-		driver.switchTo().defaultContent(); //leave frame
+		driver.switchTo().parentFrame(); // back to outerFrame
+		driver.switchTo().defaultContent(); // back to main page
 		
         driver.switchTo().frame(0); //switch To IFrame using index
 
